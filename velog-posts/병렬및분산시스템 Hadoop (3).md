@@ -1,0 +1,65 @@
+<h2 id="hdfs-특징">HDFS 특징</h2>
+<p>블록 단위 파일 보관</p>
+<ul>
+<li>파일을 블록 단위로 나눠서 보관 (기본설정:64M)</li>
+</ul>
+<p>분산 파일 시스템</p>
+<ul>
+<li>블록을 다중 노드에 분산해서 보관</li>
+</ul>
+<p>리플리케이션</p>
+<ul>
+<li>하나의 블록은 여러 노드에 복제</li>
+<li>특정 노드 장애에 무정지 대응</li>
+</ul>
+<p>범용 장비 사용</p>
+<h2 id="hdfs의-shell">HDFS의 shell</h2>
+<h3 id="파일-시스템에-접근하기-위한-쉘스크립트명령행-인터페이스-제공">파일 시스템에 접근하기 위한 쉘스크립트(명령행 인터페이스) 제공</h3>
+<p><img alt="" src="https://velog.velcdn.com/images/rtd7878/post/75acd4d9-43dd-4175-b604-73dd77037a84/image.png" /></p>
+<h3 id="클라이언트">클라이언트</h3>
+<ul>
+<li>쉘 스크립트, 자바 API, HTTP 등 제공</li>
+</ul>
+<h2 id="hdfs-블록">HDFS 블록</h2>
+<h3 id="블록">블록</h3>
+<ul>
+<li>HDFS에서의 파일은 블록 크기로 분리되어 저장</li>
+<li>기본 블록 크기는 64MB (128MB로 많이 사용)</li>
+<li>파일 분리 예<ul>
+<li>256MB 파일은 64M 네 개의 블록으로 분리되어 저장 (즉, 4개의 파일로 분리되어 저장)</li>
+<li>블록 크기보다 작은 파일은 단일 블록으로 저장<ul>
+<li>이 경우, 블록 파일의 크기는 실제 파일 크기임</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>단일 디스크보다 더 큰 파일을 보관할 수 있음</li>
+<li>복제 단위<ul>
+<li>노드 간 데이터 복사는 블록 단위로 됨</li>
+</ul>
+</li>
+</ul>
+<p><img alt="" src="https://velog.velcdn.com/images/rtd7878/post/035124da-9ee9-494f-9449-b6d190c5a6a5/image.png" /></p>
+<p>RPC: Remote Procedure Call (원격 함수 호출)</p>
+<ul>
+<li>읽기
+<img alt="" src="https://velog.velcdn.com/images/rtd7878/post/99bf82ab-b5f5-49ea-942d-097b5e69cd02/image.png" /></li>
+</ul>
+<ul>
+<li>쓰기
+<img alt="" src="https://velog.velcdn.com/images/rtd7878/post/d901a22f-4f61-47ad-a039-18173476f0d5/image.png" /></li>
+</ul>
+<h2 id="블록을-보관할-노드-선택">블록을 보관할 노드 선택</h2>
+<h3 id="한-랙에-동일-블록-복제본이-존재하지-않도록">한 랙에 동일 블록 복제본이 존재하지 않도록</h3>
+<ul>
+<li>첫 번째 replica는 가까운 노드(랙)에 보관 또는 임의 노드 선택</li>
+<li>두 번째와 세 번째는 첫 번째와 다른 랙에 보관<ul>
+<li>두 번째/세 번째는 동일 랙에 보관</li>
+</ul>
+</li>
+</ul>
+<h3 id="데이터-가용성-읽기쓰기-성능-고려">데이터 가용성, 읽기/쓰기 성능 고려</h3>
+<ul>
+<li>한 랙이 장애나더라도 서비스 가능</li>
+<li>쓰기 과정에서 블록 복제 시, 랙 간 데이터 이동은 1</li>
+</ul>
