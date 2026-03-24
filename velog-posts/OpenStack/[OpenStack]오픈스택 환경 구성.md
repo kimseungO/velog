@@ -1,6 +1,7 @@
 >오픈스택 설치중 마주쳤던 에러에 관해서 정리하는 시리즈입니다.
 
 
+![](https://velog.velcdn.com/images/rtd7878/post/627984e0-0bca-4f82-8772-ad8b07ede551/image.png)
 
 
 ### **[1. 인프라 아키텍처 및 IP 구성]**
