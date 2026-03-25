@@ -1,3 +1,6 @@
+![](https://velog.velcdn.com/images/rtd7878/post/d576d0ce-10e0-4682-9b6a-347eeb3887ed/image.png)
+
+
 ▣ iptables
 iptables는 리눅스에서 네트워크 트래픽을 관리하고 보안을 강화하기 위해 사용되는 강력한 명령줄 기반 방화벽 도구이다. 이는 커널의 Netfilter 모듈을 제어하여 네트워크 패킷을 필터링하고, 특정 규칙에 따라 트래픽을 허용하거나 차단한다.
 
