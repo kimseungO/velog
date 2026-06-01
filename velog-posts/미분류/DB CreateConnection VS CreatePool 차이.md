@@ -2,7 +2,7 @@
 
 ## Active-Active VS Active-Standby
 보통의 웹 서비스는 안정성을 위해 Master DB를 하나 두고 Candidate DB를 하나 두어서 장애에 대비합니다.
-이 Candidate DB 동작 방식은 Active-Acive 방식과 Active-Standby 형식으로 나뉩니다.
+이 Candidate DB 동작 방식은 Active-Acive 방식과 Active-Standby 방식으로 나뉩니다.
 
 - **Active-Active**
 이 방식은 두 DB가 동시에 동작하며 동시에 읽기/쓰기 동작이 가능합니다.
